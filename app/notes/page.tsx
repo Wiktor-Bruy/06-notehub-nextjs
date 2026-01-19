@@ -9,20 +9,12 @@ import NotesClient from './Notes.client';
 
 import css from './page.module.css';
 
-interface NotesProps {
-  params: Promise<{
-    search: string;
-    page: number;
-  }>;
-}
-
-export default async function Notes({ params }: NotesProps) {
-  const { search: word, page } = await params;
+export default async function Notes() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['note', page, word],
-    queryFn: () => fetchNotes(page, word),
+    queryKey: ['note'],
+    queryFn: () => fetchNotes(1, ''),
   });
 
   return (

@@ -95,13 +95,3 @@ export default function NotesClient() {
     </div>
   );
 }
-
-// import css from './page.module.css';
-
-// export default function Notes() {
-//   return (
-//     <main className={css.main}>
-//       <p>Notes</p>
-//     </main>
-//   );
-// }
