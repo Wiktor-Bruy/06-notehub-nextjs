@@ -26,7 +26,7 @@ export default function NoteList({
       return res;
     },
     onSuccess: data => {
-      queryClient.invalidateQueries({ queryKey: ['note'] });
+      queryClient.invalidateQueries({ queryKey: ['notes'] });
       setIsModal(true);
       setTypeModal('delete');
       setMessage(data);

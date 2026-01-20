@@ -13,7 +13,7 @@ export async function fetchNotes(
   page: number,
   topic?: string
 ): Promise<Answer> {
-  if (topic !== '') {
+  if (topic !== '' && topic !== undefined) {
     const res = await axios.get<Answer>(
       `https://notehub-public.goit.study/api/notes?search=${topic}&page=${page}&perPage=12`,
       {
@@ -63,7 +63,7 @@ export async function deleteNote(id: string): Promise<Note> {
   return res.data;
 }
 
-export async function fetchNoteById(id: string) {
+export async function fetchNoteById(id: string): Promise<Note> {
   const res = await axios.get<Note>(
     `https://notehub-public.goit.study/api/notes/${id}`,
     {
