@@ -30,8 +30,10 @@ export default function NoteForm({
     },
     onSuccess: data => {
       queryClient.invalidateQueries({ queryKey: ['notes'] });
+      onCancel();
       setTypeModal('create');
       setMessage(data);
+      setIsModal(true);
     },
   });
 
@@ -44,8 +46,6 @@ export default function NoteForm({
   function handleSubmit(values: NewNote, actions: FormikHelpers<NewNote>) {
     createMutation.mutate(values);
     actions.resetForm();
-    onCancel();
-    setIsModal(true);
   }
 
   const validationSchema = Yup.object().shape({
