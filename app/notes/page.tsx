@@ -13,7 +13,7 @@ export default async function Notes() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['note'],
+    queryKey: ['note', 1, ''],
     queryFn: () => fetchNotes(1, ''),
   });
 
