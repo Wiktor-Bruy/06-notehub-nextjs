@@ -30,6 +30,7 @@ export default function NotesClient() {
     queryFn: () => fetchNotes(page, word),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
+    throwOnError: true,
   });
 
   function closeModal() {
